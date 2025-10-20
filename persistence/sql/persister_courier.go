@@ -8,7 +8,7 @@ import (
 	"database/sql"
 	"encoding/json"
 
-	"github.com/gobuffalo/pop/v6"
+	"github.com/ory/pop/v6"
 	"github.com/gofrs/uuid"
 	"github.com/pkg/errors"
 

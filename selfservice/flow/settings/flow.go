@@ -10,7 +10,7 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/gobuffalo/pop/v6"
+	"github.com/ory/pop/v6"
 
 	"github.com/ory/kratos/text"
 

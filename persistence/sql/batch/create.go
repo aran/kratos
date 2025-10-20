@@ -13,7 +13,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/gobuffalo/pop/v6"
+	"github.com/ory/pop/v6"
 	"github.com/gofrs/uuid"
 	"github.com/jmoiron/sqlx/reflectx"
 	"github.com/pkg/errors"

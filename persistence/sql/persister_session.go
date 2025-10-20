@@ -12,7 +12,7 @@ import (
 	"github.com/ory/x/dbal"
 	"github.com/ory/x/pointerx"
 
-	"github.com/gobuffalo/pop/v6"
+	"github.com/ory/pop/v6"
 	"github.com/gofrs/uuid"
 	"github.com/pkg/errors"
 	"go.opentelemetry.io/otel/trace"

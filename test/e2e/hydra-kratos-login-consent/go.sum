@@ -917,8 +917,8 @@ github.com/gobuffalo/packd v1.0.2/go.mod h1:sUc61tDqGMXON80zpKGp92lDb86Km28jfvX7
 github.com/gobuffalo/packr/v2 v2.0.9/go.mod h1:emmyGweYTm6Kdper+iywB6YK5YzuKchGtJQZ0Odn4pQ=
 github.com/gobuffalo/packr/v2 v2.2.0/go.mod h1:CaAwI0GPIAv+5wKLtv8Afwl+Cm78K/I/VCm/3ptBN+0=
 github.com/gobuffalo/plush/v4 v4.1.16/go.mod h1:6t7swVsarJ8qSLw1qyAH/KbrcSTwdun2ASEQkOznakg=
-github.com/gobuffalo/pop/v6 v6.0.8 h1:9+5ShHYh3x9NDFCITfm/gtKDDRSgOwiY7kA0Hf7N9aQ=
-github.com/gobuffalo/pop/v6 v6.0.8/go.mod h1:f4JQ4Zvkffcevz+t+XAwBLStD7IQs19DiIGIDFYw1eA=
+github.com/ory/pop/v6 v6.0.8 h1:9+5ShHYh3x9NDFCITfm/gtKDDRSgOwiY7kA0Hf7N9aQ=
+github.com/ory/pop/v6 v6.0.8/go.mod h1:f4JQ4Zvkffcevz+t+XAwBLStD7IQs19DiIGIDFYw1eA=
 github.com/gobuffalo/syncx v0.0.0-20190224160051-33c29581e754/go.mod h1:HhnNqWY95UYwwW3uSASeV7vtgYkT2t16hJgV3AEPUpw=
 github.com/gobuffalo/tags/v3 v3.1.4/go.mod h1:ArRNo3ErlHO8BtdA0REaZxijuWnWzF6PUXngmMXd2I0=
 github.com/gobuffalo/validate/v3 v3.3.3/go.mod h1:YC7FsbJ/9hW/VjQdmXPvFqvRis4vrRYFxr69WiNZw6g=

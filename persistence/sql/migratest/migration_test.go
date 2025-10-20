@@ -26,7 +26,7 @@ import (
 
 	"github.com/ory/x/migratest"
 
-	"github.com/gobuffalo/pop/v6"
+	"github.com/ory/pop/v6"
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/require"
 
