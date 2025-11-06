@@ -21,7 +21,6 @@ import (
 	"github.com/ory/pop/v6"
 	"github.com/gorilla/sessions"
 	"github.com/hashicorp/go-retryablehttp"
-	"github.com/luna-duclos/instrumentedsql"
 	"github.com/pkg/errors"
 	"go.opentelemetry.io/otel/trace/noop"
 
@@ -64,7 +63,6 @@ import (
 	"github.com/ory/x/jwksx"
 	"github.com/ory/x/logrusx"
 	"github.com/ory/x/otelx"
-	otelsql "github.com/ory/x/otelx/sql"
 	"github.com/ory/x/popx"
 	prometheus "github.com/ory/x/prometheusx"
 	"github.com/ory/x/sqlcon"
@@ -627,15 +625,6 @@ func (m *RegistryDefault) Init(ctx context.Context, ctxer contextx.Contextualize
 
 	m.jsonnetPool = o.jsonnetPool
 
-	var instrumentedDriverOpts []instrumentedsql.Opt
-	if m.Tracer(ctx).IsLoaded() {
-		instrumentedDriverOpts = []instrumentedsql.Opt{
-			instrumentedsql.WithTracer(otelsql.NewTracer()),
-			instrumentedsql.WithOpsExcluded(instrumentedsql.OpSQLRowsNext),
-			instrumentedsql.WithOmitArgs(), // don't risk leaking PII or secrets
-		}
-	}
-
 	if o.replaceTracer != nil {
 		m.trc = o.replaceTracer(m.trc)
 	}
@@ -668,13 +657,12 @@ func (m *RegistryDefault) Init(ctx context.Context, ctxer contextx.Contextualize
 			WithField("connMaxLifetime", connMaxLifetime).
 			Debug("Connecting to SQL Database")
 		c, err := pop.NewConnection(&pop.ConnectionDetails{
-			URL:                       sqlcon.FinalizeDSN(m.l, cleanedDSN),
-			IdlePool:                  idlePool,
-			ConnMaxLifetime:           connMaxLifetime,
-			ConnMaxIdleTime:           connMaxIdleTime,
-			Pool:                      pool,
-			UseInstrumentedDriver:     m.Tracer(ctx).IsLoaded(),
-			InstrumentedDriverOptions: instrumentedDriverOpts,
+			URL:             sqlcon.FinalizeDSN(m.l, cleanedDSN),
+			IdlePool:        idlePool,
+			ConnMaxLifetime: connMaxLifetime,
+			ConnMaxIdleTime: connMaxIdleTime,
+			Pool:            pool,
+			TracerProvider:  m.Tracer(ctx).Provider(),
 		})
 		if err != nil {
 			m.Logger().WithError(err).Warnf("Unable to connect to database, retrying.")

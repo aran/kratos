@@ -97,10 +97,11 @@ require (
 	google.golang.org/grpc v1.71.0
 )
 
-require github.com/ory/pop/v6 v6.3.0
+require github.com/ory/pop/v6 v6.3.1
 
 require (
 	filippo.io/edwards25519 v1.1.0 // indirect
+	github.com/XSAM/otelsql v0.39.0 // indirect
 	github.com/a8m/envsubst v1.4.2 // indirect
 	github.com/alecthomas/participle/v2 v2.1.1 // indirect
 	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751 // indirect
